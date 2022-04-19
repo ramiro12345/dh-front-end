@@ -1,0 +1,94 @@
+#title-users{
+    margin: 1px auto;
+    background-color: #246355;
+    justify-content:center;
+    float: right;
+}
+#list-users{
+	margin: 100px auto;
+	width: 750px;
+    //background-color: #04ffc4;
+}
+.btn{
+    border-radius: 3px;
+    display: inline-block;
+    padding: 20px 15px;
+    text-decoration: none;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.3);
+    box-shadow: 0 1px 1px rgba(0,0,0,0.3); 
+}
+
+.btn-green{
+    color: white;
+    background-color: #3CC93F;
+}
+.btn-green:hover{
+    background-color: #37B839;	
+}
+.btn-green:active{
+    background-color: #29962A;
+}
+.btn-red{
+    color: white;
+    background-color: #E34242;
+}
+.btn-red:hover{
+    background-color: #C43535;	
+}
+.btn-red:active{
+    background-color: #A62828;
+}
+table{
+	background-color: white;
+	text-align: left;
+	border-collapse: collapse;
+	//width: 100%;
+}
+
+th, td{
+	padding: 20px;
+}
+
+thead{
+	background-color: #246355;
+	border-bottom: solid 5px #0F362D;
+	color: white;
+}
+
+tr:nth-child(even){
+	background-color: #ddd;
+}
+
+tr:hover td{
+	background-color: #369681;
+	color: white;
+}
+/* Formulario */
+form{
+    background-color: white;
+    border-radius: 5px;
+    color: #999;
+    font-size: 0.8em;
+    padding: 20px;
+    margin: 0 auto;
+    width: 300px;
+}
+input{
+    border: 2;
+    outline: none;
+    width: 280px;
+}
+.field{
+    border: solid 1px #ccc;
+    padding: 10px;
+
+    
+}
+
+.field:focus{
+    border-color: #18A383;
+}
+
+.center-content{
+    text-align: center;
+}
