@@ -1,5 +1,6 @@
 <div id="list-users">
   <div id="title-users">
+    <a class="btn btn-red" (click)="bulletin()">Bulletin</a>
     <a class="btn btn-green" *ngIf="!isNewUser" (click)="newUser()">New User</a>
     <a class="btn btn-red" *ngIf="isNewUser" (click)="cancelNewUser()">Cancel</a>
   </div>

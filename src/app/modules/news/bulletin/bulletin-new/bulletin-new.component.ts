@@ -1,33 +1,22 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  OnInit,
+  Input,
+} from '@angular/core'
 
 @Component({
   selector: 'app-bulletin-new',
   templateUrl: './bulletin-new.component.html',
   styleUrls: ['./bulletin-new.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class BulletinNewComponent implements OnInit {
-public listNotice: any;
-  constructor() { }
+  public listNotice: any
+  @Input('dataNotice') datos!: any
+  constructor() {}
 
   ngOnInit(): void {
-    this.listNotice = [
-      {
-        title: 'Titulo 1',
-        subTitle: 'Subtitulo de la noticia 1',
-        body: 'Contenido de la noticia 1'
-      },
-      {
-        title: 'Titulo 2',
-        subTitle: 'Subtitulo de la noticia 2',
-        body: 'Contenido de la noticia 2'
-      },
-      {
-        title: 'Titulo 3',
-        subTitle: 'Subtitulo de la noticia 3',
-        body: 'Contenido de la noticia 3'
-      }
-    ];
+    this.listNotice = this.datos;
   }
-
 }

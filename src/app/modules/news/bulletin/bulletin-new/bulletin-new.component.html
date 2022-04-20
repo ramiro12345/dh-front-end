@@ -1,22 +1,26 @@
-<div class="div-notice" *ngFor="let item of listNotice">
+<div class="bulletin-container" *ngFor="let item of listNotice">
     <!-- bullrtin container -->
     <!-- article->sections->divs -->
-    <div class="card">
+    <div class="bulletin">
         <div class="bulletin-head">
-            <img class="avatar" src="../../../../../assets/avatar-1.png"><br><br><br>
-            
-            <span class="bulletin-head-details">Publicado: Hace 5 min</span>
+            <img class="avatar" src="../../../../../assets/avatar-1.png"><br><br>
+            <strong>Profile 1</strong>
+            <br>
+            <small class="bulletin-head-details">Publicado: Hace {{item.date}} min</small>
         </div>
-        <header>
-            <img src="./../../../../../assets/fondo.jpg" alt="">
-        </header>
-        <section>
-            <h2>{{item.title}}</h2>
-            <h3>{{item.subTitle}}</h3>
-            <p>{{item.body}}</p>
-        </section>
-        <footer>
+        <div class="bulletin-body">
+            <section>
+                <p>{{item.body}}</p>
+            </section>
+        </div>
+        <div class="bulletin-image">
+            <img src="./../../../../../assets/news.jpg" alt="">
+        </div>
+        <div class="bulletin-footer">
             <p>Digital Harbor Bolivia</p>
-        </footer>
+        </div>
     </div>
+    <!-- <div class="bulletin">
+        sadassssssssssssss
+    </div> -->
 </div>

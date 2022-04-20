@@ -1,2 +1,8 @@
-<p>bulletin works!</p>
-<app-bulletin-new></app-bulletin-new>
+<div class="bulletin-container">
+    <p>New Notice</p>
+    <div class="bulletin-new">
+        <textarea id="content-bulletin" class="controls" name="content-bulletin" rows="1" cols="50" placeholder="Contenido" [(ngModel)]="bodyContentBulletin" ></textarea><br>
+        <button class="botons" (click)="addNewNotice()" >Add</button>
+    </div>
+</div>
+<app-bulletin-new [dataNotice] = "dataBulletin"></app-bulletin-new>
