@@ -65,13 +65,15 @@ tr:hover td{
 }
 /* Formulario */
 form{
-    background-color: white;
-    border-radius: 5px;
-    color: #999;
-    font-size: 0.8em;
-    padding: 20px;
-    margin: 0 auto;
-    width: 300px;
+    width: 400px;
+    background: #24303c;
+    padding: 30px;
+    margin: auto;
+    margin-top: 100px;
+    border-radius: 4px;
+    font-family: 'calibri';
+    color: white;
+    box-shadow: 7px 13px 37px #000;
 }
 input{
     border: 2;
@@ -84,7 +86,17 @@ input{
 
     
 }
-
+.controls {
+    width: 100%;
+    background: #24303c;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    border: 1px solid #1f53c5;
+    font-family: 'calibri';
+    font-size: 18px;
+    color: white;
+  }
 .field:focus{
     border-color: #18A383;
 }

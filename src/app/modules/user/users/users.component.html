@@ -21,7 +21,7 @@
       <td>{{item.accountid}}</td>
       <td>{{item.firstName}}</td>
       <td>{{item.lastName}}</td>
-      <td>{{item.createdDate}}</td>
+      <td>{{item.createdDate | date:'yyyy/MM/dd'}}</td>
       <td>{{item.deleted}}</td>
       <td><button (click)="editData(item)">Edit</button> <button (click)="deleteData(item.id)">Delete</button></td>
     </tr>
@@ -30,16 +30,15 @@
     <form #myForm="ngForm">
       <input type="hidden" name="idUpdate" id="idUpdate" [(ngModel)]="idUpdate" autocomplete="off">
       <p>AccountID:</p>
-      <input type="text" class="field" name="accountid" id="accountid" autocomplete="off" [(ngModel)]="user.accountid">
+      <input type="number" class="controls" name="accountid" id="accountid" autocomplete="off" [(ngModel)]="user.accountid">
       <p>First Name:</p>
-      <input type="text" class="field" name="firstName" id="firstName" autocomplete="off" [(ngModel)]="user.firstName">
+      <input type="text" class="controls" name="firstName" id="firstName" autocomplete="off" [(ngModel)]="user.firstName">
       <p>Last Name:</p>
-      <input type="text" class="field" name="lastName" id="lastName" autocomplete="off" [(ngModel)]="user.lastName">
+      <input type="text" class="controls" name="lastName" id="lastName" autocomplete="off" [(ngModel)]="user.lastName">
       <p>Date:</p>
-      <input type="date" class="field" name="createdDate" id="createdDate" [(ngModel)]="user.createdDate"><br><br>
+      <input type="date" class="controls" name="createdDate" id="createdDate" [(ngModel)]="user.createdDate"><br><br>
       <p class="center-content">
         <button class="btn btn-green" (click)="saveNewUser()" *ngIf="isNewUser && !isUpdateUser">Submit</button>
-        <!-- <button class="btn btn-green" type="submit" [disabled]="myForm.form.invalid" *ngIf="isNewUser && !isUpdateUser">Submit</button> -->
         <button class="btn btn-green" (click)="saveEditData()" *ngIf="isUpdateUser">Save</button>
       </p>
     </form>
