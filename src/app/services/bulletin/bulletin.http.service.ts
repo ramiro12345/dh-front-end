@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { environment } from 'src/environments/environment';
+import { Observable } from 'rxjs';
 const base_url = environment.base_url;
 @Injectable({
   providedIn: 'root'
@@ -9,26 +10,16 @@ export class BulletinHttpService {
 
   constructor(private http: HttpClient) { }
 
-  getBulletin() {
+  getBulletin(): Observable<any> {
     return this.http.get(`${base_url}`);
   }
-  saveBulletin(data: any) {
-    console.log("Datos Bulletin a guardar", data);
-    
+  saveBulletin(data: any): Observable<any> {
     return this.http.get(`${base_url}`);
-    // return this.http.post(`${base_url}/bulletin/saveBulletin`, data);
   }
-  updateBulletin(id: Number, data: any) {
-    console.log("Datos Bulletin a actualizar id", id);
-    console.log("Datos Bulletin a actualizar", data);
-    
+  updateBulletin(id: Number, data: any): Observable<any> {
     return this.http.get(`${base_url}`);
-    // return this.http.put(`${base_url}/bulletin/updateBulletin/${id}`, data);
   }
-  deleteBulletin(id: Number) {
-    console.log("Datos Bulletin a eliminar id", id);
-    
+  deleteBulletin(id: Number): Observable<any> {
     return this.http.get(`${base_url}`);
-    // return this.http.put(`${base_url}/bulletin/deleteBulletin/${id}`,{});
   }
 }
