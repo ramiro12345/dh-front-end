@@ -1,0 +1,21 @@
+.form-add-bulletin {
+  display: flex;
+  background: $colors-dark-secondary;
+}
+
+.controls {
+  background: $colors-dark-text-border;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  border: 1px solid $colors-dark-text-border;
+  font-family: $text-font;
+  font-size: 18px;
+  color: $colors-dark-text;
+}
+
+.bulletin-form-label {
+  color: $colors-dark-text;
+  font-size: 18px;
+  font-family: $text-font;
+}

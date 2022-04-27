@@ -1,41 +1,11 @@
-<div class="bulletin-container">
-    <p>New Notice</p>
-    <div class="bulletin-new">
-        <textarea id="content-bulletin" class="controls" name="content-bulletin" rows="1" cols="50" placeholder="Contenido" [(ngModel)]="bodyContentBulletin" ></textarea><br>
-        <button class="botons" (click)="addNewNotice()" >Add</button>
-    </div>
+<div class="form-add-bulletin">
+  <p class="bulletin-form-label">New Notice</p>
+  <textarea class="controls"
+            name="content-bulletin"
+            rows="1"
+            cols="50"
+            placeholder="Content"
+            [(ngModel)]="bodyContentBulletin"></textarea>
+  <button class="btn-add-new-user" (click)="addNewBulletin()">Add</button>
 </div>
-
-<div class="container">
-    <header class="header">
-      <div class="menu">
-        <div class="logo">
-        </div>
-        <div class="nav">
-        </div>
-        <div class="social">
-        </div>
-      </div>
-      <div class="texto-principal">
-        <h1></h1>
-      </div>
-    </header>
-    <section class="seccion">
-      <div class="articulo">
-        <article class="aticle">
-            <app-bulletin-new [dataNotice] = "dataBulletin"></app-bulletin-new>
-        </article>
-        <article class="aticle"></article>
-        <article class="aticle"></article>
-        <article class="aticle"></article>
-        <nav class="navegacion"></nav>
-      </div>
-      <aside class="aside">
-        <div class="publicidad"></div>
-        <div class="publicidad"></div>
-      </aside>
-    </section>
-    <footer class="footer">
-      <nav class="pie"></nav>
-    </footer>
-  </div>
+<app-bulletin-new [dataNotice]="dataBulletin"></app-bulletin-new>

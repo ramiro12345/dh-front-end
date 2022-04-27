@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AccesoGuard } from 'src/app/guards/acceso.guard';
+import { AccessGuard } from 'src/app/guards/access.guard';
 import { UserHttpService } from 'src/app/services/user/user.http.service';
 @Component({
   selector: 'app-user-login',
@@ -10,7 +10,7 @@ import { UserHttpService } from 'src/app/services/user/user.http.service';
 })
 export class UserLoginComponent implements OnInit {
   public userLogin: any;
-  constructor(public serviceUser: UserHttpService, public router: Router, public guard: AccesoGuard) {
+  constructor(public serviceUser: UserHttpService, public router: Router, public guard: AccessGuard) {
     this.userLogin = {
       accountId: '',
       password: '',
@@ -18,7 +18,7 @@ export class UserLoginComponent implements OnInit {
   }
 
   ngOnInit(): void { }
-  
+
   submit(): void {
     if (this.userLogin.accountId != '' && this.userLogin.password != '') {
       this.guard.login(true);

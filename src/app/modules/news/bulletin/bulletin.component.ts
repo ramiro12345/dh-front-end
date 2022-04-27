@@ -1,56 +1,47 @@
-import { Component, OnInit } from '@angular/core'
-import { BulletinHttpService } from 'src/app/services/bulletin/bulletin.http.service'
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-bulletin',
-  templateUrl: './bulletin.component.html',
-  styleUrls: ['./bulletin.component.scss'],
+  templateUrl: './bulletin.component.html'
 })
 export class BulletinComponent implements OnInit {
-  public bodyContentBulletin: string
+  public bodyContentBulletin: string;
   public dataBulletin: any;
-  public listNotice: any;
-  constructor(public serviceBulletin: BulletinHttpService) {
-    this.bodyContentBulletin = ''
+
+  constructor() {
+    this.bodyContentBulletin = '';
     this.dataBulletin = {
       accountId: '',
       senderUserId: '',
       body: '',
       commentsCounter: '',
+      comments: []
     };
+    this.dataBulletin = [];
   }
 
   ngOnInit(): void {
-    this.dataBulletin = [];
+
   }
-  addNewNotice(): void {
+
+  public addNewBulletin(): void {
     this.dataBulletin.push({
       accountId: '',
       body: this.bodyContentBulletin,
       date: Math.floor(Math.random() * 10),
       commentsCounter: '',
+      comments: [
+        {
+          content: 'Hi'
+        },
+        {
+          content: 'How dou you do?'
+        },
+        {
+          content: 'Hello'
+        }
+      ]
     });
     this.bodyContentBulletin = '';
-  }
-  getBulletin(): void {
-    this.serviceBulletin.getBulletin().subscribe(
-      (data) => {
-        console.log('DATA', data)
-      },
-      (err) => {
-        console.log('Error', err)
-      },
-    )
-  }
-
-  saveBulletin(): void {
-    this.serviceBulletin.saveBulletin('datos').subscribe(
-      (data) => {
-        console.log('DATA', data)
-      },
-      (err) => {
-        console.log('Error', err)
-      },
-    )
   }
 }

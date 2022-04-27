@@ -1,3 +1,117 @@
+$colors-dark-secondary: rgb(36, 37, 38, 1);
+$colors-dark-text-border: rgb(58, 59, 60, 1);
+$colors-dark-text: rgb(208, 210, 214, 1);
+
+.card{
+  justify-content: start;
+  display: flex;
+  flex-flow: row wrap;
+}
+.content-bulletin{
+  background: $colors-dark-secondary;
+  display: flex;
+  border-radius: 15px;
+  width: 460px;
+  overflow: hidden;
+  position: sticky;
+  flex-flow: column nowrap;
+  justify-content: center;
+}
+
+.head-card-bulletin{
+  display: flex;
+  //background: #4433ff;
+  flex-flow: row nowrap;
+}
+.body-card-bulletin{
+  flex-flow: column nowrap;
+  justify-content: end;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+.footer-card-bulletin{
+  display: flex;
+}
+.badge-bulletin {
+  background: $colors-dark-text-border;
+  border-radius: 100%;
+  font-weight: bold;
+  border: 1px solid $colors-dark-text;
+  padding: 2px;
+}
+.line {
+  border-bottom:solid 1px $colors-dark-text;
+  width:100%;
+}
+.buttons-footer-bulletin {
+  min-width: 130px;
+  height: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  border-radius: 5px;
+  z-index: 0;
+  background: $colors-dark-secondary;
+  overflow: hidden;
+  border: 1px solid $colors-dark-text;
+  color: $colors-dark-text;
+}
+.buttons-footer-bulletin:hover {
+  color: #fff;
+}
+.buttons-footer-bulletin:hover:after {
+  height: 100%;
+}
+.buttons-footer-bulletin:after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  transition: all 0.3s ease;
+  left: 0;
+  top: 0;
+  height: 0;
+  width: 100%;
+  background: $colors-dark-text-border;
+}
+.avatar-profile-bulletin{
+  width: 80px;
+  border-radius: 50%;
+  object-position: center;
+  object-fit: fill;
+  flex-flow: column nowrap;
+}
+.detail-card-bulletin{
+  padding: 0px;
+  flex-flow: column;
+}
+.profile-text-bulletin{
+  color: $colors-dark-text;
+}
+.text-justify{
+  text-align: justify;
+}
+.bulletin-head-details{
+  padding-top: 40px;
+  float: none;
+}
+.bulletin-image img {
+  border-radius: 15px;
+  padding: 10px;
+  width: 100%;
+  height: 250px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 .bulletin-container{
   margin: auto;
   width: 60%;
@@ -19,10 +133,7 @@ div.bulletin-head img.avatar {
   float: left;
   margin-right: 15px;
 }
-.bulletin-head-details{
-  padding-top: 100px;
-  float: none;
-}
+
 .bulletin {
   width: 400px;
   overflow: hidden;
@@ -32,12 +143,8 @@ div.bulletin-head img.avatar {
   box-shadow: 7px 13px 37px rgba(0, 0, 0, .6);
 }
 
-  .bulletin-image img {
-    width: 100%;
-    height: 199px;
-  }
-  
+
+
   section {
     padding: 10px;
   }
-  

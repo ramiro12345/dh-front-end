@@ -1,6 +1,10 @@
+$colors-dark-secondary: rgb(36, 37, 38, 1);
+$colors-dark-text: rgb(208, 210, 214, 1);
+$colors-dark-text-border: rgb(58, 59, 60, 1);
+
 .form-register {
   width: 400px;
-  background: #24303c;
+  background: $colors-dark-secondary;
   padding: 30px;
   margin: auto;
   margin-top: 100px;
@@ -17,11 +21,11 @@
 
 .controls {
   width: 100%;
-  background: #24303c;
+  background: $colors-dark-text-border;
   padding: 10px;
   border-radius: 4px;
   margin-bottom: 16px;
-  border: 1px solid #1f53c5;
+  border: 1px solid $colors-dark-text-border;
   font-family: 'calibri';
   font-size: 18px;
   color: white;

@@ -1,106 +1,135 @@
-#title-users{
-    margin: 1px auto;
-    background-color: #24303c;
-    justify-content:center;
-    float: right;
+$colors-dark-primary: rgb(24, 25, 26, 1);
+$colors-dark-secondary: rgb(36, 37, 38, 1);
+$colors-dark-text: rgb(208, 210, 214, 1);
+$colors-dark-text-border: rgb(58, 59, 60, 1);
+.content-users{
+  display: flex;
+  flex-direction: column;
 }
-#list-users{
-	margin: 100px auto;
-	width: 750px;
-    //background-color: #04ffc4;
+.list-users{
+  background: #3cc93f;
 }
-.btn{
-    border-radius: 3px;
-    display: inline-block;
-    padding: 20px 15px;
-    text-decoration: none;
-    text-shadow: 0 1px 0 rgba(255,255,255,0.3);
-    box-shadow: 0 1px 1px rgba(0,0,0,0.3); 
+.options{
+  background: $colors-dark-secondary;
 }
 
-.btn-green{
-    color: white;
-    background-color: #3CC93F;
-}
-.btn-green:hover{
-    background-color: #37B839;	
-}
-.btn-green:active{
-    background-color: #29962A;
-}
-.btn-red{
-    color: white;
-    background-color: #E34242;
-}
-.btn-red:hover{
-    background-color: #C43535;	
-}
-.btn-red:active{
-    background-color: #A62828;
-}
-table{
-	background-color: white;
-	text-align: left;
-	border-collapse: collapse;
-	//width: 100%;
+.styled-table {
+  background: $colors-dark-secondary;;
+  text-align: left;
+  border-collapse: collapse;
+  table-layout: fixed;
+  color: white;
+  //width: 100%;
 }
 
-th, td{
-	padding: 20px;
+th, td {
+  padding: 20px;
 }
 
-thead{
-	background-color: #24303c;
-	border-bottom: solid 5px #0F362D;
-	color: white;
+thead {
+  background: $colors-dark-secondary;
+  border-bottom: solid 5px #0f362d;
+  color: white;
 }
 
-tr:nth-child(even){
-	background-color: #ddd;
+tr:nth-child(even) {
+  background: $colors-dark-secondary;;
 }
 
-tr:hover td{
-	background-color: #2c4155;
-	color: white;
+tr:hover td {
+  background: rgb(58, 59, 60, 1);;
+  color: white;
 }
-/* Formulario */
-form{
-    width: 400px;
-    background: #24303c;
-    padding: 30px;
-    margin: auto;
-    margin-top: 100px;
-    border-radius: 4px;
-    font-family: 'calibri';
-    color: white;
-    box-shadow: 7px 13px 37px #000;
+.form-register {
+  width: 400px;
+  background: #24303c;
+  padding: 0px;
+  margin: auto;
+  margin-top: 100px;
+  border-radius: 4px;
+  font-family: 'calibri';
+  color: white;
+  box-shadow: 7px 13px 37px #000;
 }
-input{
-    border: 2;
-    outline: none;
-    width: 280px;
-}
-.field{
-    border: solid 1px #ccc;
-    padding: 10px;
-
-    
+.labels{
+  color: $colors-dark-text;
 }
 .controls {
-    width: 100%;
-    background: #24303c;
-    padding: 10px;
-    border-radius: 4px;
-    margin-bottom: 16px;
-    border: 1px solid #1f53c5;
-    font-family: 'calibri';
-    font-size: 18px;
-    color: white;
-  }
-.field:focus{
-    border-color: #18A383;
+  width: 200px;
+  height: 25px;
+  background: #24303c;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  border: 1px solid $colors-dark-text-border;
+  font-family: 'calibri';
+  font-size: 18px;
+  color: $colors-dark-text;
 }
 
-.center-content{
-    text-align: center;
+.form-register .botons {
+  width: 100%;
+  background: #1f53c5;
+  border: none;
+  padding: 12px;
+  color: white;
+  margin: 16px 0;
+  font-size: 16px;
 }
+.form-user{
+  display: flex;
+  background: $colors-dark-secondary
+}
+.form-data-user{
+  height: 5px;
+  display: flex;
+  height: auto;
+  flex-direction: column;
+  flex-flow: row wrap;
+}
+/*
+
+!* Formulario *!
+form {
+  width: 400px;
+  background: #24303c;
+  padding: 30px;
+  margin: auto;
+  margin-top: 100px;
+  border-radius: 4px;
+  font-family: 'calibri';
+  color: white;
+  box-shadow: 7px 13px 37px #000;
+}
+
+input {
+  border: 2;
+  outline: none;
+  width: 280px;
+}
+
+.field {
+  border: solid 1px #ccc;
+  padding: 10px;
+}
+
+.controls {
+  width: 100%;
+  background: #24303c;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  border: 1px solid #1f53c5;
+  font-family: 'calibri';
+  font-size: 18px;
+  color: white;
+}
+
+.field:focus {
+  border-color: #18a383;
+}
+
+.center-content {
+  text-align: center;
+}
+*/

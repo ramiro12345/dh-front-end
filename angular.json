@@ -35,7 +35,7 @@
             ],
             "styles": [
               "src/styles.sass",
-              "src/assets/proyect-ui.scss"
+              "src/assets/project-ui.scss"
             ],
             "scripts": []
           },

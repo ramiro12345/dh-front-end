@@ -1,46 +1,91 @@
-<div id="list-users">
-  <div id="title-users">
-    <a class="btn btn-red" (click)="bulletin()">Bulletin</a>
-    <a class="btn btn-green" *ngIf="!isNewUser" (click)="newUser()">New User</a>
-    <a class="btn btn-red" *ngIf="isNewUser" (click)="cancelNewUser()">Cancel</a>
+<div class="content-users">
+  <div class="options">
+    <button class="btn-redirection"
+            (click)="bulletin()">Bulletin
+    </button>
+    <button class="btn-add-new-user"
+            *ngIf="!isNewUser"
+            (click)="newUser()">New User
+    </button>
+    <button class="btn-add-cancel-user"
+            *ngIf="isNewUser"
+            (click)="cancelNewUser()">Cancel
+    </button>
   </div>
-  <table *ngIf="!isNewUser">
+  <table class="styled-table"
+         *ngIf="!isNewUser">
     <thead>
-      <tr>
-        <th>Id</th>
-        <th>Account ID</th>
-        <th>First Name</th>
-        <th>Last name</th>
-        <th>Created Date</th>
-        <th>Status</th>
-        <th>Options</th>
-      </tr>
+    <tr>
+      <th>Id</th>
+      <th>Account ID</th>
+      <th>First Name</th>
+      <th>Last name</th>
+      <th>Created Date</th>
+      <th>Status</th>
+      <th>Options</th>
+    </tr>
     </thead>
+    <tbody>
     <tr *ngFor="let item of listUsers">
       <td>{{item.id}}</td>
-      <td>{{item.accountid}}</td>
+      <td>{{item.accountId}}</td>
       <td>{{item.firstName}}</td>
       <td>{{item.lastName}}</td>
       <td>{{item.createdDate | date:'yyyy/MM/dd'}}</td>
       <td>{{item.deleted}}</td>
-      <td><button (click)="editData(item)">Edit</button> <button (click)="deleteData(item.id)">Delete</button></td>
+      <td>
+        <button class="btn-add-new-user" (click)="editData(item)">Edit</button>
+        <button class="btn-add-cancel-user" (click)="deleteData(item.id)">Delete</button>
+      </td>
     </tr>
+    </tbody>
   </table>
-  <div id="list-users" *ngIf="isNewUser || isUpdateUser">
-    <form #myForm="ngForm">
-      <input type="hidden" name="idUpdate" id="idUpdate" [(ngModel)]="idUpdate" autocomplete="off">
-      <p>AccountID:</p>
-      <input type="number" class="controls" name="accountid" id="accountid" autocomplete="off" [(ngModel)]="user.accountid">
-      <p>First Name:</p>
-      <input type="text" class="controls" name="firstName" id="firstName" autocomplete="off" [(ngModel)]="user.firstName">
-      <p>Last Name:</p>
-      <input type="text" class="controls" name="lastName" id="lastName" autocomplete="off" [(ngModel)]="user.lastName">
-      <p>Date:</p>
-      <input type="date" class="controls" name="createdDate" id="createdDate" [(ngModel)]="user.createdDate"><br><br>
-      <p class="center-content">
-        <button class="btn btn-green" (click)="saveNewUser()" *ngIf="isNewUser && !isUpdateUser">Submit</button>
-        <button class="btn btn-green" (click)="saveEditData()" *ngIf="isUpdateUser">Save</button>
-      </p>
-    </form>
-  </div>
+</div>
+
+<div class="form-user"
+     *ngIf="isNewUser || isUpdateUser">
+  <form #myForm="ngForm" class="form-data-user">
+    <input type="hidden"
+           name="idUpdate"
+           id="idUpdate"
+           [(ngModel)]="idUpdate"
+           autocomplete="off">
+    <p class="labels">AccountID:</p>
+    <input type="number"
+           class="controls"
+           name="accountid"
+           id="accountid"
+           autocomplete="off"
+           [(ngModel)]="user.accountId">
+    <p class="labels">First Name:</p>
+    <input type="text"
+           class="controls"
+           name="firstName"
+           id="firstName"
+           autocomplete="off"
+           [(ngModel)]="user.firstName">
+    <p class="labels">Last Name:</p>
+    <input type="text"
+           class="controls"
+           name="lastName"
+           id="lastName"
+           autocomplete="off"
+           [(ngModel)]="user.lastName">
+    <p class="labels">Date:</p>
+    <input type="date"
+           class="controls"
+           name="createdDate"
+           id="createdDate"
+           [(ngModel)]="user.createdDate"><br><br>
+    <p class="labels">
+      <button class="btn-add-new-user"
+              (click)="saveNewUser()"
+              *ngIf="isNewUser && !isUpdateUser">Submit
+      </button>
+      <button class="btn-add-new-user"
+              (click)="saveEditData()"
+              *ngIf="isUpdateUser">Save
+      </button>
+    </p>
+  </form>
 </div>

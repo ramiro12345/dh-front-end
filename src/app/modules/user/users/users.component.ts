@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { UserHttpService } from 'src/app/services/user/user.http.service';
-import { Router } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {UserHttpService} from 'src/app/services/user/user.http.service';
+
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
-  styleUrls: ['./users.component.scss'],
+  styleUrls: ['./users.component.scss']
 })
 export class UsersComponent implements OnInit {
   public user: User;
@@ -12,7 +13,8 @@ export class UsersComponent implements OnInit {
   public listUsers: any[];
   public isNewUser: boolean;
   public isUpdateUser: boolean;
-  public idUpdate: Number;
+  public idUpdate: number;
+
   constructor(public router: Router, public serviceUser: UserHttpService) {
     this.title = '';
     this.listUsers = [];
@@ -20,11 +22,12 @@ export class UsersComponent implements OnInit {
     this.isUpdateUser = false;
     this.idUpdate = 0;
     this.user = {
-      accountid: 0,
+      id: 0,
+      accountId: 0,
       firstName: '',
       lastName: '',
       createdDate: '',
-      isDeleted: false,
+      isDeleted: false
     };
   }
 
@@ -32,34 +35,39 @@ export class UsersComponent implements OnInit {
     this.getUsers();
   }
 
-  ngAfterViewInit() { }
+  ngAfterViewInit() {
+  }
 
-  ngOnDestroy() { }
+  ngOnDestroy() {
+  }
 
-  getUsers(): void {
+  public getUsers(): void {
     this.serviceUser.getUser().subscribe(
       (data) => {
         this.listUsers = data;
       },
       (err) => {
-        alert(`Ocurrio un error al obtener los usuarios: ${err}`);
-      },
-    )
+        alert(`Ocurrio un error al obtener los usurers: ${err}`);
+      }
+    );
   }
-  newUser(): void {
+
+  public newUser(): void {
     this.isNewUser = true;
     this.isUpdateUser = false;
   }
-  cancelNewUser(): void {
+
+  public cancelNewUser(): void {
     this.isNewUser = false;
     this.isUpdateUser = false;
-    this.user.accountid = 0;
+    this.user.accountId = 0;
     this.user.firstName = '';
     this.user.lastName = '';
     this.user.createdDate = '';
     this.idUpdate = 0;
   }
-  saveNewUser(): void {
+
+  public saveNewUser(): void {
     this.serviceUser.saveUser(this.user).subscribe(
       (data) => {
         this.cancelNewUser();
@@ -67,11 +75,12 @@ export class UsersComponent implements OnInit {
       },
       (err) => {
         alert(`Ocurrio un error al guardar los usuarios: ${err}`);
-      },
-    )
+      }
+    );
   }
-  editData(user: any): void {
-    this.user.accountid = user.accountid;
+
+  public editData(user: User): void {
+    this.user.accountId = user.accountId;
     this.user.firstName = user.firstName;
     this.user.lastName = user.lastName;
     this.user.createdDate = user.createdDate;
@@ -79,35 +88,38 @@ export class UsersComponent implements OnInit {
     this.isNewUser = true;
     this.isUpdateUser = true;
   }
-  saveEditData(): void {
+
+  public saveEditData(): void {
     this.serviceUser.updateUser(this.idUpdate, this.user).subscribe(
       (data) => {
         this.cancelNewUser();
         this.getUsers();
       },
       (err) => {
-        alert(`Ocurrio un error al editar el usurio: ${err}`);
-      },
-    )
+        alert(`Occurred un error al edit el usurer: ${err}`);
+      }
+    );
   }
 
-  deleteData(id: Number): void {
+  public deleteData(id: number): void {
     this.serviceUser.deleteUser(id).subscribe(
       (data) => {
-        console.log('DATA', data)
+        console.log('DATA', data);
       },
       (err) => {
-        console.log('Error', err)
-      },
-    )
+        console.log('Error', err);
+      }
+    );
   }
 
-  bulletin(): void {
-    this.router.navigate(['/list-bulletin'])
+  public bulletin(): void {
+    this.router.navigate(['/list-bulletin']).then(r => console.log(r));
   }
 }
+
 interface User {
-  accountid: Number;
+  id: number;
+  accountId: number;
   firstName: string;
   lastName: string;
   createdDate: string;

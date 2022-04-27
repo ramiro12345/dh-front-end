@@ -20,10 +20,10 @@ export class UserHttpService {
     return this._http.post(`${base_url}/users`, data);
   }
 
-  updateUser(id: Number, data: any): Observable<any> {
+  updateUser(id: number, data: any): Observable<any> {
     return this._http.put(`${base_url}/users/${id}`, data);
   }
-  
+
   deleteUser(id: Number): Observable<any> {
     return this._http.get(`${base_url}`);
   }
