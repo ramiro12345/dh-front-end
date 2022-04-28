@@ -1,5 +1,5 @@
-<div class="content-users">
-  <div class="options">
+<div class="users-container">
+  <section class="users-options">
     <button class="btn-redirection"
             (click)="bulletin()">Bulletin
     </button>
@@ -11,45 +11,50 @@
             *ngIf="isNewUser"
             (click)="cancelNewUser()">Cancel
     </button>
-  </div>
-  <table class="styled-table"
+  </section>
+
+  <table class="users-table"
          *ngIf="!isNewUser">
-    <thead>
+    <thead class="users-table-head">
     <tr>
-      <th>Id</th>
-      <th>Account ID</th>
-      <th>First Name</th>
-      <th>Last name</th>
-      <th>Created Date</th>
-      <th>Status</th>
-      <th>Options</th>
+      <th class="users-table-content">Id</th>
+      <th class="users-table-content">Account ID</th>
+      <th class="users-table-content">First Name</th>
+      <th class="users-table-content">Last name</th>
+      <th class="users-table-content">Created Date</th>
+      <th class="users-table-content">Status</th>
+      <th class="users-table-content">Options</th>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let item of listUsers">
-      <td>{{item.id}}</td>
-      <td>{{item.accountId}}</td>
-      <td>{{item.firstName}}</td>
-      <td>{{item.lastName}}</td>
-      <td>{{item.createdDate | date:'yyyy/MM/dd'}}</td>
-      <td>{{item.deleted}}</td>
-      <td>
-        <button class="btn-add-new-user" (click)="editData(item)">Edit</button>
-        <button class="btn-add-cancel-user" (click)="deleteData(item.id)">Delete</button>
+      <td class="users-table-content">{{item.id}}</td>
+      <td class="users-table-content">{{item.accountId}}</td>
+      <td class="users-table-content">{{item.firstName}}</td>
+      <td class="users-table-content">{{item.lastName}}</td>
+      <td class="users-table-content">{{item.createdDate | date:'yyyy/MM/dd'}}</td>
+      <td class="users-table-content">{{item.deleted}}</td>
+      <td class="users-table-content">
+        <button class="btn-add-new-user"
+                (click)="editData(item)">Edit
+        </button>
+        <button class="btn-add-cancel-user"
+                (click)="deleteData(item.id)">Delete
+        </button>
       </td>
     </tr>
     </tbody>
   </table>
-</div>
 
-<div class="form-user"
-     *ngIf="isNewUser || isUpdateUser">
-  <form #myForm="ngForm" class="form-data-user">
+  <form #myForm="ngForm"
+        class="users-form-data"
+        *ngIf="isNewUser || isUpdateUser">
     <input type="hidden"
            name="idUpdate"
            id="idUpdate"
            [(ngModel)]="idUpdate"
            autocomplete="off">
+
     <p class="labels">AccountID:</p>
     <input type="number"
            class="controls"
@@ -57,6 +62,7 @@
            id="accountid"
            autocomplete="off"
            [(ngModel)]="user.accountId">
+
     <p class="labels">First Name:</p>
     <input type="text"
            class="controls"
@@ -64,6 +70,7 @@
            id="firstName"
            autocomplete="off"
            [(ngModel)]="user.firstName">
+
     <p class="labels">Last Name:</p>
     <input type="text"
            class="controls"
@@ -71,6 +78,7 @@
            id="lastName"
            autocomplete="off"
            [(ngModel)]="user.lastName">
+
     <p class="labels">Date:</p>
     <input type="date"
            class="controls"

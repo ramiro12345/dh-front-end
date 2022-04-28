@@ -1,8 +1,8 @@
-$colors-dark-secondary: rgb(36, 37, 38, 1);
-$colors-dark-text: rgb(208, 210, 214, 1);
-$colors-dark-text-border: rgb(58, 59, 60, 1);
-
-.form-register {
+.user-login-container{
+  display: flex;
+  flex-flow: column nowrap;
+}
+.user-login-form-register {
   width: 400px;
   background: $colors-dark-secondary;
   padding: 30px;
@@ -14,12 +14,12 @@ $colors-dark-text-border: rgb(58, 59, 60, 1);
   box-shadow: 7px 13px 37px #000;
 }
 
-.form-register h4 {
+.user-login-form-register h4 {
   font-size: 22px;
   margin-bottom: 20px;
 }
 
-.controls {
+.user-login-controls {
   width: 100%;
   background: $colors-dark-text-border;
   padding: 10px;
@@ -31,7 +31,7 @@ $colors-dark-text-border: rgb(58, 59, 60, 1);
   color: white;
 }
 
-.form-register .botons {
+.user-login-form-register .user-login-buttons {
   width: 100%;
   background: #1f53c5;
   border: none;

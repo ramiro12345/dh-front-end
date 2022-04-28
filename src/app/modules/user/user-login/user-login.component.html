@@ -1,6 +1,21 @@
-<section class="form-register">
-  <h4>Login</h4>
-  <input class="controls" type="text" name="accounId" id="accounId" placeholder="Account ID" [(ngModel)]="userLogin.accountId">
-  <input class="controls" type="password" name="passwordUser" id="passwordUser" placeholder="Password" [(ngModel)]="userLogin.password">
-  <input class="botons" type="submit" value="submit" (click)="submit()" >
-</section>
+<div class="user-login-container">
+  <section class="user-login-form-register">
+    <h4>Login</h4>
+    <input class="user-login-controls"
+           type="text"
+           name="accounId"
+           id="accounId"
+           placeholder="Account ID"
+           [(ngModel)]="userLogin.accountId">
+    <input class="user-login-controls"
+           type="password"
+           name="passwordUser"
+           id="passwordUser"
+           placeholder="Password"
+           [(ngModel)]="userLogin.password">
+    <input class="user-login-buttons"
+           type="submit"
+           value="submit"
+           (click)="submit()">
+  </section>
+</div>

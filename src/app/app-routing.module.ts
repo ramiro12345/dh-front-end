@@ -7,7 +7,7 @@ import {BulletinComponent} from './modules/news/bulletin/bulletin.component';
 
 const routes: Routes = [
   {path: 'login', component: UserLoginComponent},
-  {path: 'list-users', component: UsersComponent, canActivate: [AccessGuard]},
+  {path: 'list-users', component: UsersComponent, },//canActivate: [AccessGuard]
   {path: 'list-bulletin', component: BulletinComponent},
   {path: '', redirectTo: '/login', pathMatch: 'full'}
 ];

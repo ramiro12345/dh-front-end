@@ -1,27 +1,22 @@
-import {Component, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, ViewEncapsulation} from '@angular/core';
 
 @Component({
   selector: 'app-bulletin',
-  templateUrl: './bulletin.component.html'
+  templateUrl: './bulletin.component.html',
+  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BulletinComponent implements OnInit {
   public bodyContentBulletin: string;
   public dataBulletin: any;
 
-  constructor() {
+  constructor(private _cdr: ChangeDetectorRef) {
     this.bodyContentBulletin = '';
-    this.dataBulletin = {
-      accountId: '',
-      senderUserId: '',
-      body: '',
-      commentsCounter: '',
-      comments: []
-    };
     this.dataBulletin = [];
   }
 
   ngOnInit(): void {
-
+    this._getBulletins();
   }
 
   public addNewBulletin(): void {
@@ -42,6 +37,11 @@ export class BulletinComponent implements OnInit {
         }
       ]
     });
+    console.log(this.dataBulletin);
     this.bodyContentBulletin = '';
+  }
+
+  private _getBulletins(): void {
+
   }
 }

@@ -4,8 +4,6 @@ $colors-dark-text: rgb(208, 210, 214, 1);
 $colors-dark-text-border: rgb(58, 59, 60, 1);
 $text-font: 'calibri';
 
-@import "./bulletin/bulletin-ui.scss";
-
 .btn-add-new-user {
   min-width: 130px;
   height: 40px;
@@ -80,13 +78,13 @@ body {
 }
 
 .header {
-  background: #363062;
+  background: $colors-dark-primary;
   display: flex;
   flex-flow: column nowrap;
 }
 
 .menu {
-  background: #4d4c7d;
+  background: $colors-dark-secondary;
   display: flex;
   flex-flow: row nowrap;
   height: 100px;
@@ -94,29 +92,21 @@ body {
 }
 
 .logo {
-  background: #827397;
+  background: $colors-dark-text-border;
   flex: 1 1 auto;
   height: 30px;
 }
 
 .nav {
-  background: #827397;
+  background: $colors-dark-text-border;
   flex: 5 1 auto;
   height: 30px;
 }
 
 .social {
-  background: #827397;
+  background: $colors-dark-text-border;
   flex: 1 1 auto;
   height: 30px;
-}
-
-.text-content {
-  background: #e8630a;
-}
-
-h1 {
-  background: #fcd900;
 }
 
 .section {
@@ -144,7 +134,7 @@ h1 {
 }
 
 .publicises {
-  background: #b20600;
+  background: $colors-dark-text-border;
 }
 
 .footer {
@@ -153,8 +143,8 @@ h1 {
   justify-content: center;
 }
 
-.pie {
-  background: #b20600;
+.content-footer {
+  background: $colors-dark-secondary;
   width: 300px;
 }
 

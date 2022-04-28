@@ -1,11 +1,12 @@
-<div class="form-add-bulletin">
+<div class="bulletin-form-add">
   <p class="bulletin-form-label">New Notice</p>
-  <textarea class="controls"
+  <textarea class="bulletin-input-controls"
             name="content-bulletin"
-            rows="1"
+            rows="2"
             cols="50"
             placeholder="Content"
             [(ngModel)]="bodyContentBulletin"></textarea>
   <button class="btn-add-new-user" (click)="addNewBulletin()">Add</button>
 </div>
+
 <app-bulletin-new [dataNotice]="dataBulletin"></app-bulletin-new>

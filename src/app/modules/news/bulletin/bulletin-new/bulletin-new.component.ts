@@ -8,21 +8,20 @@ import {
 @Component({
   selector: 'app-bulletin-new',
   templateUrl: './bulletin-new.component.html',
-  styleUrls: ['./bulletin-new.component.scss'],
   changeDetection: ChangeDetectionStrategy.Default
 })
 export class BulletinNewComponent implements OnInit {
   public listNotice: any;
-  @Input('dataNotice') datos!: any;
+  @Input('dataNotice') dataBulletin: any;
 
   constructor() {
   }
 
   ngOnInit(): void {
-    this.listNotice = this.datos;
+    this.listNotice = this.dataBulletin;
   }
 
-  viewMore(more: string) {
+  public viewMore(more: string) :void {
     if (more == 'mas') {
       (<HTMLInputElement>document.getElementById('desplegar')).style.display = 'block';
       (<HTMLInputElement>document.getElementById('mas')).style.display = 'none';
@@ -30,6 +29,5 @@ export class BulletinNewComponent implements OnInit {
       (<HTMLInputElement>document.getElementById('desplegar')).style.display = 'none';
       (<HTMLInputElement>document.getElementById('mas')).style.display = 'inline';
     }
-    console.log('asdsa', more);
   }
 }

@@ -1,16 +1,17 @@
-import {Component, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {Router} from '@angular/router';
 import {UserHttpService} from 'src/app/services/user/user.http.service';
 
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
-  styleUrls: ['./users.component.scss']
+  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UsersComponent implements OnInit {
   public user: User;
   public title: string;
-  public listUsers: any[];
+  public listUsers: any;
   public isNewUser: boolean;
   public isUpdateUser: boolean;
   public idUpdate: number;
@@ -35,19 +36,13 @@ export class UsersComponent implements OnInit {
     this.getUsers();
   }
 
-  ngAfterViewInit() {
-  }
-
-  ngOnDestroy() {
-  }
-
   public getUsers(): void {
     this.serviceUser.getUser().subscribe(
       (data) => {
         this.listUsers = data;
       },
       (err) => {
-        alert(`Ocurrio un error al obtener los usurers: ${err}`);
+        alert(`Error usurers: ${err}`);
       }
     );
   }
@@ -74,7 +69,7 @@ export class UsersComponent implements OnInit {
         this.getUsers();
       },
       (err) => {
-        alert(`Ocurrio un error al guardar los usuarios: ${err}`);
+        alert(`Error users: ${err}`);
       }
     );
   }
@@ -96,7 +91,7 @@ export class UsersComponent implements OnInit {
         this.getUsers();
       },
       (err) => {
-        alert(`Occurred un error al edit el usurer: ${err}`);
+        alert(`Error users, edit: ${err}`);
       }
     );
   }
@@ -104,16 +99,16 @@ export class UsersComponent implements OnInit {
   public deleteData(id: number): void {
     this.serviceUser.deleteUser(id).subscribe(
       (data) => {
-        console.log('DATA', data);
+        alert(`users, deleted`);
       },
       (err) => {
-        console.log('Error', err);
+        alert(`Error users, deleted: ${err}`);
       }
     );
   }
 
   public bulletin(): void {
-    this.router.navigate(['/list-bulletin']).then(r => console.log(r));
+    this.router.navigate(['/list-bulletin']);
   }
 }
 

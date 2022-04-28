@@ -1,31 +1,30 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { AccessGuard } from 'src/app/guards/access.guard';
-import { UserHttpService } from 'src/app/services/user/user.http.service';
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {AccessGuard} from 'src/app/guards/access.guard';
+
 @Component({
   selector: 'app-user-login',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  templateUrl: './user-login.component.html',
-  styleUrls: ['./user-login.component.scss'],
+  templateUrl: './user-login.component.html'
 })
 export class UserLoginComponent implements OnInit {
   public userLogin: any;
-  constructor(public serviceUser: UserHttpService, public router: Router, public guard: AccessGuard) {
+
+  constructor(public router: Router, public guard: AccessGuard) {
     this.userLogin = {
       accountId: '',
-      password: '',
+      password: ''
     };
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+  }
 
   submit(): void {
     if (this.userLogin.accountId != '' && this.userLogin.password != '') {
       this.guard.login(true);
       this.router.navigate(['/list-users']);
-    } else {
-      alert('ingrese sus datos');
+    } else
       this.router.navigate(['/login']);
-    }
   }
 }

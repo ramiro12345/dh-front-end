@@ -1,47 +1,29 @@
-<div class="card">
-  <div class="content-bulletin" *ngFor="let item of listNotice">
-    <div class="head-card-bulletin">
-      <img class="avatar-profile-bulletin" src="../../../../../assets/avatar-1.png">
-      <div class="detail-card-bulletin">
-        <h5 class="profile-text-bulletin">Profile</h5>
-        <small class="profile-text-bulletin">Publicado: Hace {{item.date}} min</small>
+<article class="bulletin-new-container bulletin-new-container-dark">
+  <div class="bulletin-new-content"
+       *ngFor="let item of listNotice">
+    <section class="bulletin-new-head-content">
+      <img class="bulletin-new-avatar-profile"
+           src="../../../../../assets/avatar-1.png">
+      <div class="bulletin-new-detail">
+        <h5 class="bulletin-new-profile-text-user">Profile</h5>
+        <small class="bulletin-new-profile-text-user">Posted : ago {{item.date}} min</small>
       </div>
-    </div>
-    <div class="body-card-bulletin">
-      <p class="profile-text-bulletin text-justify">{{item.body}} {{(item.body.length > 200)? 'si '+item.body.length: 'no'}}</p>
-      <div class="bulletin-image">
-        <img src="./../../../../../assets/news.jpg" alt="">
+    </section>
+
+    <section class="body-card-bulletin">
+      <p class="bulletin-new-profile-text-user text-justify">{{item.body}}</p>
+      <div class="bulletin-new-image">
+        <img src="./../../../../../assets/news.jpg"
+             alt="">
       </div>
-    </div>
+    </section>
+
     <div class="line"></div>
-    <div class="footer-card-bulletin">
-      <button class="buttons-footer-bulletin">Comments <span class="badge-bulletin">{{item.comments.length}}</span></button>
-      <button class="buttons-footer-bulletin">Views <span class="badge-bulletin">7</span></button>
-      <button class="buttons-footer-bulletin">Shares <span class="badge-bulletin">7</span></button>
-    </div>
+    <section class="bulletin-new-footer">
+      <button class="bulletin-new-footer-buttons">Comments <span class="bulletin-new-badge">{{item.comments.length}}</span></button>
+      <button class="bulletin-new-footer-buttons">Views <span class="bulletin-new-badge">7</span></button>
+      <button class="bulletin-new-footer-buttons">Shares <span class="bulletin-new-badge">7</span></button>
+    </section>
     <div class="line"></div>
-    <!--<div class="bulletin-footer" *ngFor=" let comment of item.comments">
-      <p>{{ comment.content }}</p>
-    </div>-->
   </div>
-</div>
-
-<!--<div class="bulletin-container" *ngFor="let item of listNotice">
-    <div class="bulletin">
-        <div class="bulletin-head">
-            <img class="avatar" src="../../../../../assets/avatar-1.png"><br><br>
-            <strong>Profile 1</strong>
-            <br>
-            <small class="bulletin-head-details">Publicado: Hace {{item.date}} min</small>
-        </div>
-        <div class="bulletin-body">
-            <section>
-                <p>{{item.body}}</p>
-            </section>
-        </div>
-        <div class="bulletin-image">
-            <img src="./../../../../../assets/news.jpg" alt="">
-        </div>
-
-    </div>
-</div>-->
+</article>

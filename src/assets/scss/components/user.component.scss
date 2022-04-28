@@ -1,0 +1,58 @@
+.users-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.users-options {
+  background: $colors-dark-secondary;
+}
+
+.users-table {
+  background: $colors-dark-secondary;;
+  text-align: left;
+  border-collapse: collapse;
+  table-layout: fixed;
+  color: white;
+}
+.users-table-content{
+  padding: 20px;
+}
+
+.users-table-head {
+  background: $colors-dark-secondary;
+  border-bottom: solid 5px #0f362d;
+  color: white;
+}
+
+tr:nth-child(even) {
+  background: $colors-dark-secondary;;
+}
+
+tr:hover td {
+  background: rgb(58, 59, 60, 1);;
+  color: white;
+}
+
+.labels {
+  color: $colors-dark-text;
+}
+
+.controls {
+  width: 200px;
+  background: $colors-dark-text-border;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  border: 1px solid $colors-dark-text-border;
+  font-family: $text-font;
+  font-size: 18px;
+  color: white;
+}
+
+.users-form-data {
+  height: 5px;
+  display: flex;
+  height: auto;
+  flex-direction: column;
+  flex-flow: row wrap;
+}
