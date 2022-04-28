@@ -1,4 +1,4 @@
-<div class="bulletin-form-add">
+<article class="bulletin-form-add">
   <p class="bulletin-form-label">New Notice</p>
   <textarea class="bulletin-input-controls"
             name="content-bulletin"
@@ -7,6 +7,6 @@
             placeholder="Content"
             [(ngModel)]="bodyContentBulletin"></textarea>
   <button class="btn-add-new-user" (click)="addNewBulletin()">Add</button>
-</div>
+</article>
 
-<app-bulletin-new [dataNotice]="dataBulletin"></app-bulletin-new>
+<app-bulletin-new [dataNotice]="dataBulletins"></app-bulletin-new>

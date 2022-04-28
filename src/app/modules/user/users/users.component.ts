@@ -1,12 +1,13 @@
 import {ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {Router} from '@angular/router';
 import {UserHttpService} from 'src/app/services/user/user.http.service';
+import {User} from '../../../api/user';
 
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
-  encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  encapsulation: ViewEncapsulation.None
+  //changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UsersComponent implements OnInit {
   public user: User;
@@ -24,7 +25,7 @@ export class UsersComponent implements OnInit {
     this.idUpdate = 0;
     this.user = {
       id: 0,
-      accountId: 0,
+      accountId: '',
       firstName: '',
       lastName: '',
       createdDate: '',
@@ -55,7 +56,7 @@ export class UsersComponent implements OnInit {
   public cancelNewUser(): void {
     this.isNewUser = false;
     this.isUpdateUser = false;
-    this.user.accountId = 0;
+    this.user.accountId = '';
     this.user.firstName = '';
     this.user.lastName = '';
     this.user.createdDate = '';
@@ -110,13 +111,4 @@ export class UsersComponent implements OnInit {
   public bulletin(): void {
     this.router.navigate(['/list-bulletin']);
   }
-}
-
-interface User {
-  id: number;
-  accountId: number;
-  firstName: string;
-  lastName: string;
-  createdDate: string;
-  isDeleted: boolean;
 }

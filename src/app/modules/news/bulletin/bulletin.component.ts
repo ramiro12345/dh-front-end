@@ -1,4 +1,6 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {BulletinHttpService} from '../../../services/bulletin/bulletin.http.service';
+import {Bulletin} from '../../../api/bulletin';
 
 @Component({
   selector: 'app-bulletin',
@@ -8,11 +10,31 @@ import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, ViewEncap
 })
 export class BulletinComponent implements OnInit {
   public bodyContentBulletin: string;
-  public dataBulletin: any;
+  public dataBulletins: Array<Bulletin>;
+  public sendBulletin: Bulletin;
 
-  constructor(private _cdr: ChangeDetectorRef) {
+  constructor(private _serviceBulletin: BulletinHttpService,
+              private _cdr: ChangeDetectorRef) {
+    this._cdr.detach();
     this.bodyContentBulletin = '';
-    this.dataBulletin = [];
+    this.sendBulletin = {
+      accountId: '',
+      senderUserId: 0,
+      body: '',
+      createdDate: '',
+      isDeleted: false,
+      commentsCounter: 0
+    };
+
+    this.dataBulletins = [{
+      id: 0,
+      accountId: '',
+      senderUserId: 0,
+      body: '',
+      createdDate: '',
+      isDeleted: false,
+      commentsCounter: 0
+    }];
   }
 
   ngOnInit(): void {
@@ -20,28 +42,35 @@ export class BulletinComponent implements OnInit {
   }
 
   public addNewBulletin(): void {
-    this.dataBulletin.push({
-      accountId: '',
+    this.sendBulletin = {
+      accountId: '8585858',
+      senderUserId: 100021,
       body: this.bodyContentBulletin,
-      date: Math.floor(Math.random() * 10),
-      commentsCounter: '',
-      comments: [
-        {
-          content: 'Hi'
-        },
-        {
-          content: 'How dou you do?'
-        },
-        {
-          content: 'Hello'
-        }
-      ]
-    });
-    console.log(this.dataBulletin);
-    this.bodyContentBulletin = '';
+      createdDate: '2022-04-17',
+      isDeleted: false,
+      commentsCounter: Math.floor(Math.random() * 100)
+    };
+    this._serviceBulletin.saveBulletin(this.sendBulletin).subscribe(
+      (data: any) => {
+        this.dataBulletins.push(data);
+
+        this._cdr.detectChanges();
+      },
+      (err) => {
+        alert(`Error users: ${err}`);
+      }
+    );
   }
 
   private _getBulletins(): void {
-
+    this._serviceBulletin.getBulletins().subscribe(
+      (data: any) => {
+        this.dataBulletins = data;
+        this._cdr.detectChanges();
+      },
+      (err) => {
+        alert(`Error usurers: ${err}`);
+      }
+    );
   }
 }

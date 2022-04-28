@@ -2,20 +2,20 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
+import { Bulletin } from './../../api/bulletin';
+
 const base_url = environment.base_url;
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class BulletinHttpService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private _http: HttpClient) { }
 
-  getBulletins(): Observable<any> {
-    return this.http.get(`${base_url}`);
+  public  getBulletins(): Observable<Array<Bulletin>> {
+    return this._http.get<Array<Bulletin>>(`${base_url}/bulletins/page`);
   }
 
-  saveBulletin(data: any): Observable<any> {
-    return this.http.post(data, `${base_url}`);
+  public saveBulletin(bulletin: Bulletin): Observable<Bulletin> {
+    return this._http.post<Bulletin>(`${base_url}/bulletins`, bulletin);
   }
 }

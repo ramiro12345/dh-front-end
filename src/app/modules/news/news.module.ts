@@ -1,9 +1,9 @@
-import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {BulletinComponent} from './bulletin/bulletin.component';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import {NgModule} from '@angular/core';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BulletinNewComponent} from './bulletin/bulletin-new/bulletin-new.component';
+import {BulletinComponent} from './bulletin/bulletin.component';
 
 
 @NgModule({
@@ -19,7 +19,8 @@ import {BulletinNewComponent} from './bulletin/bulletin-new/bulletin-new.compone
   ],
   exports: [
     BulletinComponent
-  ]
+  ],
+  providers: []
 })
 export class NewsModule {
 }

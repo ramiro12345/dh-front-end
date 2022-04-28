@@ -1,29 +1,29 @@
 <article class="bulletin-new-container bulletin-new-container-dark">
-  <div class="bulletin-new-content"
-       *ngFor="let item of listNotice">
+  <section class="bulletin-new-content bulletin-new-content-dark"
+       *ngFor="let bulletin of listBulletins">
     <section class="bulletin-new-head-content">
       <img class="bulletin-new-avatar-profile"
            src="../../../../../assets/avatar-1.png">
       <div class="bulletin-new-detail">
         <h5 class="bulletin-new-profile-text-user">Profile</h5>
-        <small class="bulletin-new-profile-text-user">Posted : ago {{item.date}} min</small>
+        <small class="bulletin-new-profile-text-user">Posted : ago {{bulletin.createdDate | date:'MM/dd'}} </small>
       </div>
     </section>
 
-    <section class="body-card-bulletin">
-      <p class="bulletin-new-profile-text-user text-justify">{{item.body}}</p>
+    <section class="body-card-bulletin ">
+      <p class="bulletin-new-profile-text-user text-justify">{{bulletin.body}}</p>
       <div class="bulletin-new-image">
         <img src="./../../../../../assets/news.jpg"
              alt="">
       </div>
     </section>
 
-    <div class="line"></div>
+    <div class="bulletin-new-line"></div>
     <section class="bulletin-new-footer">
-      <button class="bulletin-new-footer-buttons">Comments <span class="bulletin-new-badge">{{item.comments.length}}</span></button>
-      <button class="bulletin-new-footer-buttons">Views <span class="bulletin-new-badge">7</span></button>
-      <button class="bulletin-new-footer-buttons">Shares <span class="bulletin-new-badge">7</span></button>
+      <button class="bulletin-new-footer-buttons bulletin-new-footer-buttons-dark">Comments <span class="bulletin-new-badge bulletin-new-badge-dark">{{bulletin.commentsCounter}}</span></button>
+      <button class="bulletin-new-footer-buttons bulletin-new-footer-buttons-dark">Views <span class="bulletin-new-badge bulletin-new-badge-dark">7</span></button>
+      <button class="bulletin-new-footer-buttons bulletin-new-footer-buttons-dark">Shares <span class="bulletin-new-badge bulletin-new-badge-dark">7</span></button>
     </section>
-    <div class="line"></div>
-  </div>
+    <div class="bulletin-new-line"></div>
+  </section>
 </article>
