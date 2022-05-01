@@ -27,13 +27,13 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let item of listUsers">
+    <tr *ngFor="let item of users">
       <td class="users-table-content">{{item.id}}</td>
       <td class="users-table-content">{{item.accountId}}</td>
       <td class="users-table-content">{{item.firstName}}</td>
       <td class="users-table-content">{{item.lastName}}</td>
       <td class="users-table-content">{{item.createdDate | date:'yyyy/MM/dd'}}</td>
-      <td class="users-table-content">{{item.deleted}}</td>
+      <td class="users-table-content">{{item.isDeleted}}</td>
       <td class="users-table-content">
         <button class="btn-add-new-user"
                 (click)="editData(item)">Edit
@@ -61,7 +61,7 @@
            name="accountid"
            id="accountid"
            autocomplete="off"
-           [(ngModel)]="user.accountId">
+           [(ngModel)]="sedUser.accountId">
 
     <p class="labels">First Name:</p>
     <input type="text"
@@ -69,7 +69,7 @@
            name="firstName"
            id="firstName"
            autocomplete="off"
-           [(ngModel)]="user.firstName">
+           [(ngModel)]="sedUser.firstName">
 
     <p class="labels">Last Name:</p>
     <input type="text"
@@ -77,14 +77,14 @@
            name="lastName"
            id="lastName"
            autocomplete="off"
-           [(ngModel)]="user.lastName">
+           [(ngModel)]="sedUser.lastName">
 
     <p class="labels">Date:</p>
     <input type="date"
            class="controls"
            name="createdDate"
            id="createdDate"
-           [(ngModel)]="user.createdDate"><br><br>
+           [(ngModel)]="sedUser.createdDate"><br><br>
     <p class="labels">
       <button class="btn-add-new-user"
               (click)="saveNewUser()"

@@ -1,6 +1,6 @@
 <article class="bulletin-new-container bulletin-new-container-dark">
   <section class="bulletin-new-content bulletin-new-content-dark"
-       *ngFor="let bulletin of listBulletins">
+           *ngFor="let bulletin of listBulletins">
     <section class="bulletin-new-head-content">
       <img class="bulletin-new-avatar-profile"
            src="../../../../../assets/avatar-1.png">
@@ -20,10 +20,25 @@
 
     <div class="bulletin-new-line"></div>
     <section class="bulletin-new-footer">
-      <button class="bulletin-new-footer-buttons bulletin-new-footer-buttons-dark">Comments <span class="bulletin-new-badge bulletin-new-badge-dark">{{bulletin.commentsCounter}}</span></button>
-      <button class="bulletin-new-footer-buttons bulletin-new-footer-buttons-dark">Views <span class="bulletin-new-badge bulletin-new-badge-dark">7</span></button>
-      <button class="bulletin-new-footer-buttons bulletin-new-footer-buttons-dark">Shares <span class="bulletin-new-badge bulletin-new-badge-dark">7</span></button>
+      <button class="bulletin-new-footer-buttons bulletin-new-footer-buttons-dark">Comments
+        <span class="bulletin-new-badge bulletin-new-badge-dark">{{bulletin.commentsCounter}}</span></button>
+      <button class="bulletin-new-footer-buttons bulletin-new-footer-buttons-dark">Views
+        <span class="bulletin-new-badge bulletin-new-badge-dark">7</span></button>
+      <button class="bulletin-new-footer-buttons bulletin-new-footer-buttons-dark">Shares
+        <span class="bulletin-new-badge bulletin-new-badge-dark">7</span></button>
     </section>
+
     <div class="bulletin-new-line"></div>
+    <section class="bulletin-new-comment"
+             *ngFor="let comment of bulletin.comment">
+      {{comment.content}}
+    </section>
+    <section class="bulletin-new-add-comments">
+      <input type="text"
+             class="bulletin-new-add-comment"
+             placeholder="Type comment"
+             [(ngModel)]="newComment">
+      <button class="bulletin-new-add-button" (click)="addComment(bulletin)"> Add Comment</button>
+    </section>
   </section>
 </article>

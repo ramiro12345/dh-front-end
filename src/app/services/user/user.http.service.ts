@@ -23,16 +23,7 @@ export class UserHttpService {
     return this._http.put<User>(`${base_url}/users/${id}`, user);
   }
 
-  deleteUser(id: Number): Observable<User> {
-    return this._http.get<User>(`${base_url}`);
+  deleteUser(id: number): Observable<User> {
+    return this._http.get<User>(`${base_url}/users/${id}`);
   }
 }
-
-/*interface User {
-  id?: number;
-  accountId: string;
-  firstName: string;
-  lastName: string;
-  createdDate: string;
-  isDeleted: boolean;
-}*/

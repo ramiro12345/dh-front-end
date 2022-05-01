@@ -1,21 +1,21 @@
-<div class="user-login-container">
-  <section class="user-login-form-register">
+<article class="user-login-container">
+  <section class="user-login-form-register user-login-form-register-dark">
     <h4>Login</h4>
-    <input class="user-login-controls"
+    <input class="user-login-controls user-login-controls-dark"
            type="text"
            name="accounId"
            id="accounId"
            placeholder="Account ID"
-           [(ngModel)]="userLogin.accountId">
-    <input class="user-login-controls"
+           [(ngModel)]="userId">
+    <input class="user-login-controls user-login-controls-dark"
            type="password"
            name="passwordUser"
            id="passwordUser"
            placeholder="Password"
-           [(ngModel)]="userLogin.password">
+           [(ngModel)]="userPassword">
     <input class="user-login-buttons"
            type="submit"
            value="submit"
            (click)="submit()">
   </section>
-</div>
+</article>

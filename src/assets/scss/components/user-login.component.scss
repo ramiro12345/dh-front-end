@@ -4,16 +4,17 @@
 }
 .user-login-form-register {
   width: 400px;
-  background: $colors-dark-secondary;
   padding: 30px;
   margin: auto;
   margin-top: 100px;
   border-radius: 4px;
-  font-family: 'calibri';
+  font-family: $text-font;
   color: white;
   box-shadow: 7px 13px 37px #000;
 }
-
+.user-login-form-register-dark {
+  background: $colors-dark-secondary;
+}
 .user-login-form-register h4 {
   font-size: 22px;
   margin-bottom: 20px;
@@ -21,14 +22,17 @@
 
 .user-login-controls {
   width: 100%;
-  background: $colors-dark-text-border;
   padding: 10px;
   border-radius: 4px;
   margin-bottom: 16px;
   border: 1px solid $colors-dark-text-border;
-  font-family: 'calibri';
+  font-family: $text-font;
   font-size: 18px;
   color: white;
+}
+
+.user-login-controls-dark {
+  background: $colors-dark-text-border;
 }
 
 .user-login-form-register .user-login-buttons {

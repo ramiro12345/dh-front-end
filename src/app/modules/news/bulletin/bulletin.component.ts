@@ -1,4 +1,6 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {BulletinsModel} from '../../../models/bulletins.model';
+import {CommentsModel} from '../../../models/comments.model';
 import {BulletinHttpService} from '../../../services/bulletin/bulletin.http.service';
 import {Bulletin} from '../../../api/bulletin';
 
@@ -13,63 +15,61 @@ export class BulletinComponent implements OnInit {
   public dataBulletins: Array<Bulletin>;
   public sendBulletin: Bulletin;
 
+  private readonly _EMPTY: string = '';
+
   constructor(private _serviceBulletin: BulletinHttpService,
+              private _bulletinsModel: BulletinsModel,
+              private _commentsModel: CommentsModel,
               private _cdr: ChangeDetectorRef) {
     this._cdr.detach();
-    this.bodyContentBulletin = '';
-    this.sendBulletin = {
-      accountId: '',
-      senderUserId: 0,
-      body: '',
-      createdDate: '',
-      isDeleted: false,
-      commentsCounter: 0
-    };
-
-    this.dataBulletins = [{
-      id: 0,
-      accountId: '',
-      senderUserId: 0,
-      body: '',
-      createdDate: '',
-      isDeleted: false,
-      commentsCounter: 0
-    }];
+    this.bodyContentBulletin = this._EMPTY;
+    this.sendBulletin = new Bulletin(0, this._EMPTY, 0, this._EMPTY, this._EMPTY, false, 0, []);
+    this.dataBulletins = new Array<Bulletin>();
   }
 
   ngOnInit(): void {
     this._getBulletins();
+    this._listBulletinModel();
   }
 
   public addNewBulletin(): void {
-    this.sendBulletin = {
-      accountId: '8585858',
-      senderUserId: 100021,
-      body: this.bodyContentBulletin,
-      createdDate: '2022-04-17',
-      isDeleted: false,
-      commentsCounter: Math.floor(Math.random() * 100)
-    };
+    this.sendBulletin = new Bulletin(1, '8585858', 100021, this.bodyContentBulletin, '2022-04-17', false, Math.floor(Math.random() * 100), []);
     this._serviceBulletin.saveBulletin(this.sendBulletin).subscribe(
-      (data: any) => {
-        this.dataBulletins.push(data);
+      (data: Bulletin) => {
+        this._bulletinsModel.setBulletin(data);
+        this._commentsModel.setCommentByBulletin(data.id, data);
 
         this._cdr.detectChanges();
       },
       (err) => {
-        alert(`Error users: ${err}`);
+        console.warn(`Error users: ${err}`);
       }
     );
   }
 
+  private _listBulletinModel(): void {
+    this._bulletinsModel.asObservable().subscribe((values: Bulletin[]) => {
+      if (!!values.length) {
+        this.dataBulletins = values;
+        this._cdr.detectChanges();
+      }
+    });
+  }
+
   private _getBulletins(): void {
     this._serviceBulletin.getBulletins().subscribe(
-      (data: any) => {
+      (data: Array<Bulletin>) => {
         this.dataBulletins = data;
+        this.dataBulletins.forEach(element => {
+          Object.assign(element, {comment: [{content: 'First Comment'}, {content: 'Second Comment'}]});
+        });
+
+        this._bulletinsModel.setBulletins(this.dataBulletins);
+        this._commentsModel.setComments(this.dataBulletins);
         this._cdr.detectChanges();
       },
       (err) => {
-        alert(`Error usurers: ${err}`);
+        console.warn(`Error usurers: ${err}`);
       }
     );
   }

@@ -91,6 +91,45 @@
   color: $colors-dark-text;
 }
 
+.bulletin-new-comment {
+  color: $colors-dark-text;
+  font-family: $text-font;
+}
+
+.bulletin-new-add-comment {
+  background: $colors-dark-text-border;
+  padding: 2px;
+  border-radius: 6px;
+  margin-bottom: 16px;
+  border: 1px solid $colors-dark-text-border;
+  font-family: $text-font;
+  font-size: 15px;
+  color: $colors-dark-text;
+  width: 290px;
+}
+
+.bulletin-new-add-button {
+  min-width: 120px;
+  height: 22px;
+  color: #fff;
+  padding: 2px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 20px;
+  border: 2px solid #4433ff;
+  background: #4433ff;
+}
+
+.bulletin-new-add-button:hover {
+  background: #fff;
+  color: #4433ff
+}
+
+
 .bulletin-new-footer-buttons:hover {
   color: #fff;
 }

@@ -7,6 +7,7 @@ import {UserModule} from './modules/user/user.module';
 import {HttpClientModule} from '@angular/common/http';
 import {AppRoutingModule} from './app-routing.module';
 import {BulletinHttpService} from './services/bulletin/bulletin.http.service';
+import {UserHttpService} from './services/user/user.http.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {BulletinHttpService} from './services/bulletin/bulletin.http.service';
     AppRoutingModule
   ],
   providers: [
-    BulletinHttpService
+    BulletinHttpService,
+    UserHttpService
   ],
   bootstrap: [AppComponent]
 })
