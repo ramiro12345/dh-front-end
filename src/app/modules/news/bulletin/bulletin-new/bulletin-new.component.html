@@ -1,4 +1,4 @@
-<article class="bulletin-new-container bulletin-new-container-dark">
+<article class="bulletin-new-container bulletin-new-container-dark scroll">
   <section class="bulletin-new-content bulletin-new-content-dark"
            *ngFor="let bulletin of listBulletins">
     <section class="bulletin-new-head-content">
@@ -20,7 +20,9 @@
 
     <div class="bulletin-new-line"></div>
     <section class="bulletin-new-footer">
-      <button class="bulletin-new-footer-buttons bulletin-new-footer-buttons-dark">Comments
+      <button class="bulletin-new-footer-buttons bulletin-new-footer-buttons-dark" id="bulletin-new-footer-buttons-plus{{bulletin.id}}" (click)="viewComments(bulletin.id, 'plus')">Comments
+        <span class="bulletin-new-badge bulletin-new-badge-dark">{{bulletin.commentsCounter}}</span></button>
+      <button class="bulletin-new-footer-buttons bulletin-new-footer-buttons-dark" id="bulletin-new-footer-buttons-less{{bulletin.id}}" (click)="viewComments(bulletin.id, 'less')">Comments
         <span class="bulletin-new-badge bulletin-new-badge-dark">{{bulletin.commentsCounter}}</span></button>
       <button class="bulletin-new-footer-buttons bulletin-new-footer-buttons-dark">Views
         <span class="bulletin-new-badge bulletin-new-badge-dark">7</span></button>
@@ -29,16 +31,18 @@
     </section>
 
     <div class="bulletin-new-line"></div>
-    <section class="bulletin-new-comment"
-             *ngFor="let comment of bulletin.comment">
-      {{comment.content}}
-    </section>
-    <section class="bulletin-new-add-comments">
-      <input type="text"
-             class="bulletin-new-add-comment"
-             placeholder="Type comment"
-             [(ngModel)]="newComment">
-      <button class="bulletin-new-add-button" (click)="addComment(bulletin)"> Add Comment</button>
-    </section>
+    <div class="bulletin-new-section-comments" id="bulletin-new-section-comments{{bulletin.id}}">
+        <section class="bulletin-new-comment"
+               *ngFor="let comment of bulletin.comment">
+        {{comment.content}}
+      </section>
+      <section class="bulletin-new-add-comments">
+        <input type="text"
+               class="bulletin-new-add-comment"
+               placeholder="Type comment"
+               [(ngModel)]="newComment">
+        <button class="bulletin-new-add-button" (click)="addComment(bulletin)"> Add Comment</button>
+      </section>
+    </div>
   </section>
 </article>

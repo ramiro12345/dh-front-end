@@ -7,7 +7,7 @@
 .bulletin-new-content {
   display: flex;
   border-radius: 15px;
-  width: 460px;
+  width: 450px;
   overflow: hidden;
   position: sticky;
   flex-flow: column nowrap;
@@ -89,6 +89,12 @@
 .bulletin-new-footer-buttons-dark {
   background: $colors-dark-secondary;
   color: $colors-dark-text;
+}
+
+.scroll {
+  height: 600px;
+  overflow: auto;
+  scroll-snap-type: y $colors-dark-secondary;
 }
 
 .bulletin-new-comment {

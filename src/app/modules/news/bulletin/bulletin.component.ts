@@ -36,9 +36,11 @@ export class BulletinComponent implements OnInit {
     this.sendBulletin = new Bulletin(1, '8585858', 100021, this.bodyContentBulletin, '2022-04-17', false, Math.floor(Math.random() * 100), []);
     this._serviceBulletin.saveBulletin(this.sendBulletin).subscribe(
       (data: Bulletin) => {
+        data = Object.assign(data, {comment: [{content: 'First Comment'}, {content: 'Second Comment'}]});
         this._bulletinsModel.setBulletin(data);
         this._commentsModel.setCommentByBulletin(data.id, data);
-
+        (<HTMLInputElement>document.getElementById(`bulletin-new-footer-buttons-less${data.id}`)).style.display = 'none';
+        (<HTMLInputElement>document.getElementById(`bulletin-new-section-comments${data.id}`)).style.display = 'none';
         this._cdr.detectChanges();
       },
       (err) => {
@@ -51,6 +53,7 @@ export class BulletinComponent implements OnInit {
     this._bulletinsModel.asObservable().subscribe((values: Bulletin[]) => {
       if (!!values.length) {
         this.dataBulletins = values;
+        console.log('SUBSCRIBE', this.dataBulletins);
         this._cdr.detectChanges();
       }
     });
