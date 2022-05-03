@@ -8,11 +8,16 @@
            placeholder="Account ID"
            [(ngModel)]="userId">
     <input class="user-login-controls user-login-controls-dark"
-           type="password"
+           type="text"
            name="passwordUser"
            id="passwordUser"
            placeholder="Password"
-           [(ngModel)]="userPassword">
+           [(ngModel)]="userPassword"
+            value="{{ userPassword | passwordSecret:isViewPassword }}">
+    <button class="user-login-buttons" (click)="viewPassword()">
+      <p *ngIf="isViewPassword" class="mb-0">Show password</p>
+      <p *ngIf="!isViewPassword" class="mb-0">Hide password</p>
+    </button>
     <input class="user-login-buttons"
            type="submit"
            value="submit"

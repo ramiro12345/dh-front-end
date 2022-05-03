@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {Router} from '@angular/router';
 import {AccessGuard} from 'src/app/guards/access.guard';
 
@@ -9,12 +9,16 @@ import {AccessGuard} from 'src/app/guards/access.guard';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UserLoginComponent implements OnInit {
+  public isViewPassword: boolean;
   public userId: string;
-  public userPassword: string ;
+  public userPassword: string;
 
-  constructor(public router: Router, public guard: AccessGuard) {
+  constructor(private _cdr: ChangeDetectorRef,
+              public guard: AccessGuard,
+              private _router: Router) {
     this.userId = '';
     this.userPassword = '';
+    this.isViewPassword = false;
   }
 
   ngOnInit(): void {
@@ -23,8 +27,16 @@ export class UserLoginComponent implements OnInit {
   submit(): void {
     if (this.userId != '' && this.userPassword != '') {
       this.guard.login(true);
-      this.router.navigate(['/list-users']);
+      this._router.navigate(['/list-users']);
     } else
-      this.router.navigate(['/login']);
+      this._router.navigate(['/login']);
+  }
+
+  public viewPassword(): void {
+    if (this.isViewPassword)
+      this.isViewPassword = false;
+    else
+      this.isViewPassword = true;
+    this._cdr.detectChanges();
   }
 }

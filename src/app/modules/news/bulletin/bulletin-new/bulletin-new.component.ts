@@ -2,7 +2,8 @@ import {
   ChangeDetectionStrategy,
   Component,
   OnInit,
-  Input, ViewEncapsulation, ChangeDetectorRef
+  AfterViewInit,
+  Input, ViewEncapsulation, ChangeDetectorRef, OnDestroy
 } from '@angular/core';
 import {Bulletin} from '../../../../api/bulletin';
 import {Comment} from '../../../../api/comment';
@@ -14,7 +15,7 @@ import {CommentsModel} from '../../../../models/comments.model';
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class BulletinNewComponent implements OnInit {
+export class BulletinNewComponent implements OnInit, AfterViewInit, OnDestroy {
   @Input('dataNotice') dataBulletin: any;
 
   public listBulletins: Array<Bulletin>;
@@ -26,11 +27,15 @@ export class BulletinNewComponent implements OnInit {
               private _cdr: ChangeDetectorRef) {
     this.listBulletins = [];
     this.newComment = '';
-    this._commentCreated = new Comment();
+    this._commentCreated = new Comment(0, '', '', '', '', false);
   }
 
   ngOnInit(): void {
     this._initialize();
+  }
+
+  ngOnDestroy(): void {
+    this._finalize();
   }
 
   ngAfterViewInit() {
@@ -76,7 +81,10 @@ export class BulletinNewComponent implements OnInit {
   private _initialize(): void {
     this.listBulletins = this.dataBulletin;
     this._listCommentModel();
-
     console.log(this.listBulletins);
+  }
+
+  private _finalize(): void {
+    this._commentsModel.unsubscribe();
   }
 }

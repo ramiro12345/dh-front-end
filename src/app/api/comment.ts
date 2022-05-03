@@ -5,13 +5,13 @@ export class Comment {
   repliesCounter: string;
   createdDate: string;
   isDeleted: boolean;
-  private readonly _EMPTY: string = '';
-  constructor() {
-    this.id = 0;
-    this.accountId = this._EMPTY;
-    this.content = this._EMPTY;
-    this.repliesCounter = this._EMPTY;
-    this.createdDate = this._EMPTY;
-    this.isDeleted = false;
+
+  constructor(id: number, accountId: string, content: string, repliesCounter: string, createdDate: string, isDeleted: boolean) {
+    this.id = id;
+    this.accountId = accountId;
+    this.content = content;
+    this.repliesCounter = repliesCounter;
+    this.createdDate = createdDate;
+    this.isDeleted = isDeleted;
   }
 }
